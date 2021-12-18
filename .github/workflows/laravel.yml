@@ -60,6 +60,7 @@ jobs:
           cp .env.testing .env
           php artisan key:generate
           php artisan jwt:secret
+          php artisan optimize
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
 
