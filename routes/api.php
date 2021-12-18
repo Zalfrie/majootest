@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,10 @@ Route::group([
 ], function () {
     Route::post('login', [LoginController::class, 'login']);
     Route::post('logout', [LogoutController::class, 'logout']);
+    Route::post('register', [RegisterController::class, 'register']);
+});
+
+// Not Found
+Route::fallback(function(){
+    return response()->json(['message' => 'Resource not found.'], 404);
 });
