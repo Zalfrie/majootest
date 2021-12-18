@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'v1/auth'
 ], function ($router) {
-    Route::post('login', 'Auth\LoginController@login');
+    Route::post('login', [LoginController::class, 'login']);
 });
