@@ -20,4 +20,9 @@ class Merchant extends Model
     {
         return $this->hasMany(Outlet::class);
     }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

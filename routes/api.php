@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ReportMerchantController;
+use App\Http\Controllers\ReportOutletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,6 @@ use App\Http\Controllers\Auth\RegisterController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('majoo', function () {
-    return response()->json(['data' => 'hai']);
-});
 
 // Auth Endpoints
 Route::group([
@@ -27,6 +26,14 @@ Route::group([
     Route::post('login', [LoginController::class, 'login']);
     Route::post('logout', [LogoutController::class, 'logout']);
     Route::post('register', [RegisterController::class, 'register']);
+});
+
+// Resource Endpoints
+Route::group([
+    'prefix' => 'v1/report'
+], function () {
+    Route::get('merchant', [ReportMerchantController::class, 'monthly']);
+    Route::get('outlet', [ReportOutletController::class, 'monthly']);
 });
 
 // Not Found
