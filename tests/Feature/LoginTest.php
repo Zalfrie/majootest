@@ -14,7 +14,7 @@ class LoginTest extends TestCase
     private $api = "/api/v1/auth";
 
     /** @test */
-    public function registered_User_Can_Login()
+    public function registeredUserCanLogin()
     {
         $user = User::factory()->create([
             'password' => Hash::make('password')
@@ -28,6 +28,23 @@ class LoginTest extends TestCase
         $response = $this->json('POST', $this->api .'/login', $credentials);
         $response->assertStatus(200);
         $this->assertNotNull($response->getData()->access_token);
+    }
+
+    /** @test */
+    public function unregisteredUserCannotLogin()
+    {
+        $credentials = [
+            'user_name' => 'test',
+            'password' => 'password'
+        ];
+
+        $response = $this->json('POST', $this->api .'/login', $credentials);
+        $response->assertStatus(401)->assertJson([
+            'status' => 401,
+            'errors' => [
+                'Unauthorized.'
+            ]
+        ]);
     }
 
     /**
