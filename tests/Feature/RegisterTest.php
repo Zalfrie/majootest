@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Models\User;
 
-class RegistrationTest extends TestCase
+class RegisterTest extends TestCase
 {
 
     use DatabaseMigrations;
