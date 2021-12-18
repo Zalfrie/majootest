@@ -14,10 +14,13 @@ use App\Http\Controllers\Auth\LoginController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('majoo', function () {
+    return response()->json(['data' => 'hai']);
+});
 
 // Auth Endpoints
 Route::group([
     'prefix' => 'v1/auth'
-], function ($router) {
+], function () {
     Route::post('login', [LoginController::class, 'login']);
 });
