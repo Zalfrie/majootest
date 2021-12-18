@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Auth Endpoints
+Route::group([
+    'prefix' => 'v1/auth'
+], function ($router) {
+    Route::post('login', 'Auth\LoginController@login');
 });
