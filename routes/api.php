@@ -28,7 +28,7 @@ Route::group([
     Route::post('register', [RegisterController::class, 'register']);
 });
 
-// Resource Endpoints
+// Report Endpoints
 Route::group([
     'prefix' => 'v1/report'
 ], function () {
