@@ -46,7 +46,7 @@ class RegisterTest extends TestCase
         $response->assertStatus(422)->assertJson([
             'status' => 422,
             'errors' => [
-                'user_name' => ['Username sudah ada !!.']
+                'user_name' => ['The user name has already been taken.']
             ]
         ]);
     }

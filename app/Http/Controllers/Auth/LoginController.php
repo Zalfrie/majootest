@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 
 class LoginController extends ApiController
 {
+
     /**
      * Get a JWT via given credentials.
      *
