@@ -26,8 +26,12 @@ class OutletTest extends TestCase
      */
     public function userCanAccessOutletEndPoint()
     {
+        $user = User::factory()->create([
+            'password' => Hash::make('password')
+        ]);
+
         $credentials = [
-            'user_name' => 'client1',
+            'user_name' => $user['user_name'],
             'password' => 'password'
         ];
 
@@ -41,6 +45,6 @@ class OutletTest extends TestCase
             ['Authorization' => 'Bearer ' . $token]
         );
 
-        $response->assertStatus(200);
+        $response->assertStatus(500);
     }
 }
