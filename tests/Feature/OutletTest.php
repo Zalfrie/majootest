@@ -26,12 +26,8 @@ class OutletTest extends TestCase
      */
     public function userCanAccessOutletEndPoint()
     {
-        $user = User::factory()->create([
-            'password' => Hash::make('password')
-        ]);
-
         $credentials = [
-            'user_name' => $user['user_name'],
+            'user_name' => 'client1',
             'password' => 'password'
         ];
 
