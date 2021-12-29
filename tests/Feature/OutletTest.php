@@ -45,6 +45,13 @@ class OutletTest extends TestCase
             ['Authorization' => 'Bearer ' . $token]
         );
 
-        $response->assertStatus(500);
+        $response->assertStatus(200);
+
+        $this->json(
+            'POST',
+            $this->apilogin . '/logout',
+            [],
+            ['Authorization' => 'Bearer ' . $token]
+        );
     }
 }

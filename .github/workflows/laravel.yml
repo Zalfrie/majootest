@@ -61,6 +61,8 @@ jobs:
           php artisan key:generate
           php artisan jwt:secret
           php artisan optimize
+          php artisan config:clear
+          php artisan cache:clear
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
 

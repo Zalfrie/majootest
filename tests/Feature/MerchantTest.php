@@ -46,5 +46,12 @@ class MerchantTest extends TestCase
         );
 
         $response->assertStatus(200);
+
+        $this->json(
+            'POST',
+            $this->apilogin . '/logout',
+            [],
+            ['Authorization' => 'Bearer ' . $token]
+        );
     }
 }
