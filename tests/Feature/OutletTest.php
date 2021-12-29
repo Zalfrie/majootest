@@ -7,12 +7,12 @@ use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class MerchantTest extends TestCase
+class OutletTest extends TestCase
 {
     use DatabaseMigrations;
 
-    private $apilogin = "/api/v1/auth";
-    private $apimerchant = "/api/v1/report";
+    private $apilogin = "/api/vi/auth";
+    private $apioutlet = "/api/v1/report";
 
     public function testBasic()
     {
@@ -24,7 +24,7 @@ class MerchantTest extends TestCase
     /**
      * @test
      */
-    public function userCanAccessMerchantEndPoint()
+    public function userCanAccessOutletEndPoint()
     {
         $user = User::factory()->create([
             'password' => Hash::make('password')
@@ -40,7 +40,7 @@ class MerchantTest extends TestCase
 
         $response = $this->json(
             'GET',
-            $this->apimerchant . '/merchant',
+            $this->apioutlet . '/outlet',
             [],
             ['Authorization' => 'Bearer ' . $token]
         );
